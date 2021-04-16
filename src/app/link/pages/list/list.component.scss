@@ -1,0 +1,42 @@
+@import "./../../../app.theme.scss";
+.page {
+    height: 100%;
+    .header-app {
+        display: flex;
+        flex-direction: row;
+        place-content: flex-start space-between;
+        align-items: flex-start;
+    }
+
+    .main-page {
+        display: flex;
+        flex-direction: row;
+        place-content: flex-start space-between;
+
+        .user-profile {
+            text-align: center;
+            width: 25%;
+            padding: 40px 0px 90px;
+            height: 336px;
+
+            .avatar {
+                margin-bottom: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+
+            .info-user {
+                font-size: 18px;
+                line-height: 20px;
+            }
+        }
+
+        .container-liks {
+            width: 73%;
+
+            .form-link {
+                padding: 36px 64px 8px 64px;
+            }
+        }
+    }
+}

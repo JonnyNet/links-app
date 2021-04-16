@@ -1,0 +1,35 @@
+<div class="page">
+    <header class="header-app">
+        <img src="assets/images/logo_transparent 1.svg" alt="logo">
+        <button class="btn btn-light btn-xs" (click)="this.authService.logOut()">LOGOUT</button>
+    </header>
+    <main class="main-page">
+        <div class="user-profile elevation" *ngIf="user$ | async as userData">
+            <img class="avatar" routerLink="/auth/prifile" src="{{ userData.avatar }}" alt="avatar">
+            <div class="info-user">{{ userData.name }}</div>
+            <div class="info-user">{{ userData.email }}</div>
+        </div>
+
+        <div class="container-liks">
+
+            <div class="form-link elevation mb-16">
+                <form [formGroup]="form">
+                    <div class="form-group">
+                        <label for="">Url To Save</label>
+                        <input class="form-control" type="text" autocomplete="off" formControlName="url">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Name of Url</label>
+                        <input class="form-control" type="text" autocomplete="off" formControlName="name">
+                    </div>
+                    <div class="form-group text-end">
+                        <button (click)="saveLink()" [disabled]="!form.valid" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </form>
+            </div>
+
+            <app-link class="elevation mb-16" *ngFor="let link of links$ | async" [link]="link"
+                (deleteLink)="this.linkStore.deleteLink($event)"></app-link>
+        </div>
+    </main>
+</div>

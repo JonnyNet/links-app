@@ -1,0 +1,17 @@
+@import "./../../../app.theme.scss";
+
+.form-auth{
+    padding-bottom: 54px !important;
+}
+
+.terms {
+    padding: 18px 120px;
+    text-align: start;
+    font-size: 12px;
+    line-height: 16px;
+
+    span{
+        color: $primary-color;
+        cursor: pointer;
+    }
+}

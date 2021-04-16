@@ -1,0 +1,50 @@
+@import "./../../../app.theme.scss";
+
+:host {
+    display: block;
+
+    .link {
+        padding: 24px;
+        padding-right: 90px;
+        position: relative;
+
+        .link-action {
+            position: absolute;
+            top: 17px;
+            right: 17px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+
+            &:active {
+                background-color: $shadow-color;
+            }
+        }
+
+        .container-link {
+
+            p{
+                letter-spacing: 0.25px;
+            }
+
+            .link-text {
+                display: inline-block;
+                font-size: 36px;
+                color: $primary-color;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                line-height: 1;
+                overflow: hidden;
+                width: calc(100%);
+            }
+
+            .link-name {
+                margin-top: 19px;
+                font-size: 18px;
+                color: $dark-color;
+                line-height: 20px;
+                overflow-wrap: break-word;
+            }
+        }
+    }
+}
