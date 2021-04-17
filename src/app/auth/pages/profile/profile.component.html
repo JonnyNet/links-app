@@ -4,15 +4,19 @@
     </header>
     <main class="auth-main">
         <img src="assets/images/logo_transparent 1.svg" alt="logo">
-        <div class="form-auth elevation">
+        <div class="form-auth elevation" *ngIf="user$ | async as userData">
             <h5 class="auth-titile">Profile</h5>
+            <div class="text-center">
+                <img class="avatar" src="{{ userData.avatar }}" alt="avatar">
+            </div>
+            
             <div class="form-group">
                 <label for="">Full name</label>
-                <input class="form-control" type="text" autocomplete="off" readonly>
+                <input class="form-control" type="text" value="{{ userData.name }}" autocomplete="off" readonly>
             </div>
             <div class="form-group">
                 <label for="">Your Email</label>
-                <input class="form-control" type="text" autocomplete="off" readonly>
+                <input class="form-control" type="text" value="{{ userData.email }}" autocomplete="off" readonly>
             </div>
         </div>
     </main>

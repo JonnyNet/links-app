@@ -71,6 +71,12 @@ $border-input: #dddddd;
     }
 }
 
+.avatar {
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
 .btn-xs{
     width: 168px;
 }
@@ -104,6 +110,12 @@ $border-input: #dddddd;
 
 .text-end{
     text-align: end;
+}
+
+.text-error{
+    font-size: 10px;
+    color: red;
+    margin-top: 5px;
 }
 
 .mb-16{

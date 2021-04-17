@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 import { Link } from 'src/app/shared/models/link';
 import { LinkState } from 'src/app/shared/models/link-state';
 import { Store } from 'src/app/shared/store/store';
@@ -16,7 +16,6 @@ export class LinkStoreService extends Store<LinkState>{
   constructor(private linkService: LinkService) {
     super({
       error: null,
-      isLoading: false,
       links: [],
     });
   }

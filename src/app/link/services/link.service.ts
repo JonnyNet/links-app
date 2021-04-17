@@ -14,16 +14,16 @@ export class LinkService {
 
   findAll(): Observable<Link[]> {
     return this.http.get<Link[]>('assets/mocks/links.mock.json')
-      .pipe(delay(2000));
+      .pipe(delay(1000));
   }
 
   deleteLink(id: string): Observable<string> {
-    return of(id).pipe(delay(2000));
+    return of(id).pipe(delay(1000));
   }
 
   saveLink(link: Link): Observable<Link> {
     link.id = UUID.UUID();
     link.createdAt = new Date();
-    return of(link).pipe(delay(2000));
+    return of(link).pipe(delay(1000));
   }
 }

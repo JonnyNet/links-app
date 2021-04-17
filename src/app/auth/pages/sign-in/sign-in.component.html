@@ -6,15 +6,28 @@
         <img src="assets/images/logo_transparent 1.svg" alt="logo">
         <div class="form-auth elevation">
             <h5 class="auth-titile">Login</h5>
-            <div class="error">{{ error$ | async }}</div>
+            <div class="text-error">{{ error$ | async }}</div>
             <form [formGroup]="form">
                 <div class="form-group">
                     <label for="">Your Email</label>
                     <input class="form-control" type="text" autocomplete="off" formControlName="email">
+                    <div class="text-error"
+                        *ngIf="form.controls['email'].hasError('required') && (form.controls['email'].dirty || form.controls['email'].touched)">
+                        This field is required..
+                    </div>
+
+                    <div class="text-error"
+                        *ngIf="form.controls['email'].hasError('email') && (form.controls['email'].dirty || form.controls['email'].touched)">
+                        Invalid email format.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
                     <input class="form-control" type="password" autocomplete="off" formControlName="password">
+                    <div class="text-error"
+                        *ngIf="form.controls['password'].hasError('required') && (form.controls['password'].dirty || form.controls['password'].touched)">
+                        This field is required..
+                    </div>
                 </div>
                 <div class="form-group text-center">
                     <button (click)="onSubmit()" [disabled]="!form.valid" class="btn btn-primary btn-md">Login</button>

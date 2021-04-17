@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { LinkComponent } from './components/link/link.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoadComponent } from './components/load/load.component';
 
 const components = [
-  LinkComponent
+  LinkComponent,
+  LoadComponent,
 ];
 
 const modules = [
