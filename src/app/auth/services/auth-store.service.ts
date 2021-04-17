@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { delay, map, mergeMap, tap } from 'rxjs/operators';
+import { map, mergeMap, tap } from 'rxjs/operators';
 import { URLS_APP } from 'src/app/shared/consts/urls-app';
-import { HelperService } from 'src/app/shared/services/helper.service';
 import { Store } from 'src/app/shared/store/store';
 import { AuthState } from '../models/auth-state';
 import { User } from '../models/user';
@@ -23,7 +22,6 @@ export class AuthStoreService extends Store<AuthState>{
   constructor(
     private authService: AuthService,
     private localStorageService: LocalStorageService,
-    private helper: HelperService,
     private router: Router,
   ) {
     super({
@@ -33,7 +31,7 @@ export class AuthStoreService extends Store<AuthState>{
   }
 
   saveUser(user: UserRegister): void {
-    this.authService.saveUser(user).subscribe((res) => {
+    this.authService.saveUser(user).subscribe(() => {
       this.router.navigate([URLS_APP.AUTH.SING_IN]);
     }, () => this.setErrorState());
   }
@@ -68,7 +66,7 @@ export class AuthStoreService extends Store<AuthState>{
     return this.localStorageService.get(TOKEN) !== null;
   }
 
-  private setUsetState(response: User) {
+  private setUsetState(response: User): void {
     this.setState({
       ...this.state,
       user: response,

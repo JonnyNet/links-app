@@ -13,4 +13,14 @@ describe('LocalStorageService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should set', () => {
+    const key = 'TOKEN';
+    const value = 'gyujnbgyujnbvghyuj';
+    service.set(key, value);
+    expect(service.get(key)).toEqual(value);
+    service.remove(key);
+    expect(service.get(key)).toBeNull();
+  });
+
 });
